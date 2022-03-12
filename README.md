@@ -14,7 +14,7 @@
   Codename:   focal //ubuntu的代号名称
   ```
  
-  ![图一](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220303180656332.png)
+  ![图一](./img/image-20220303180656332.png)
 
   当前 Linux 内核版本信息
 
@@ -25,7 +25,7 @@
   Linux内核版本 5.4.0-65-generic #73-Ubuntu SMP MON JAN 18 
   ```
 
-   ![图二](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220303181123918.png)
+   ![图二](./img/image-20220303181123918.png)
   
 
 ##### 2.Virtualbox 安装完 Ubuntu 之后新添加的网卡如何实现系统开机自动启用和自动获取 IP？
@@ -38,9 +38,9 @@
    ip a //查看所有网卡
    ```
 
-   ![third](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/sudo1.jpg)
+   ![third](./img/sudo1.jpg)
 
-   ![thirds](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/iipa.jpg)
+   ![thirds](./img/iipa.jpg)
    发现网卡`enp0s3`不在工作中，仅在数据链路层存在，需要在网络层打开
    </br>
 
@@ -52,7 +52,7 @@
    ifconfig \\进行检查
    ```
 
-   ![four](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/sudoup.jpg)
+   ![four](./img/sudoup.jpg)
 
    发现`enp0s3`少了IPv4的地址 配置，下面则需要配置IPv4地址,使用DHCP方式配置
    </br>
@@ -63,7 +63,7 @@
    ls /etc/netplan/
    ```
 
-   ![forth](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220305173820379.png)
+   ![forth](./img/image-20220305173820379.png)
    
 
 4. 打开网络配置文件,可以看到没有关于`enp0s3`的`dhcp`地址分配：
@@ -72,12 +72,12 @@
    sudo vi /etc/netplan/00-installer-config.yaml
    ```
 
-   ![firth](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220305181254308.png)
+   ![firth](./img/image-20220305181254308.png)
    
 
 5. 进行修改，加上有关`enp0s3`的信息：
 
-   ![sixth](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/true.jpg)
+   ![sixth](./img/true.jpg)
 
 
 6. 修改完成后保存并退出，执行`sudo netplan apply`，执行新的网络配置文件
@@ -85,7 +85,7 @@
 
 7. 然后执行`ifconfig`,查看是否修改成功，结果如图：
 
-   ![ifconfig](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/if.jpg)
+   ![ifconfig](./img/if.jpg)
 
    实验完成
    
@@ -103,7 +103,7 @@
 
 1. 本地文件text.txt
 
-   ![nineth](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220305170355563.png)
+   ![nineth](./img/image-20220305170355563.png)
 
 2. 使用`scp`语句，传输文件
 
@@ -111,7 +111,7 @@
    scp text.tet[文件名（路径）] cuc@192.xxx.xxx.xx[要传输的用户名@IP地址]:/home/cuc/getext.txt[传输到该IP地址处的保存路径及保存的文件名]
    ```
 
-   ![tenth](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220305163000620.png)
+   ![tenth](./img/image-20220305163000620.png)
 
 3. 在Linux虚拟机进行验证：
 
@@ -122,7 +122,7 @@
    xdg-open getext.txt
    ```
 
-   ![eleventh](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220305170241314.png)
+   ![eleventh](./img/image-20220305170241314.png)
 
 
 ##### 4.如何配置 SSH 免密登录？
@@ -144,11 +144,11 @@
    ssh-keygen -t rsa
    ```
 
-   ![twel](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220305145012242.png)
+   ![twel](./img/image-20220305145012242.png)
 
    在`/.ssh`目录下查看产生的公私钥文件，id_rsa 为私钥，id_rsa.pub为公钥
 
-   ![thir](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220305145123582.png)
+   ![thir](./img/image-20220305145123582.png)
 
 3. 将公钥发送到要登陆的网址上：
 
@@ -156,13 +156,13 @@
    ssh-copy-id cuc@192.xxxx.xxx.xxx
    ```
 
-   ![for](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220305152450367.png)
+   ![for](./img/image-20220305152450367.png)
 
    可以在虚拟机上检查，在`/.ssh`中是否存在公钥文件，存在即可：
 
-   ![fiv](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220305152612129.png)
+   ![fiv](./img/image-20220305152612129.png)
 
 4. 就可以在主机上，利用`ssh username@ip address`登录：
 
-   ![sixt](https://github.com/CUCCS/2022-linux-public-Ning-Lorraine/tree/chap0x01/img/image-20220305154220721.png)
+   ![sixt](./img/image-20220305154220721.png)
 
