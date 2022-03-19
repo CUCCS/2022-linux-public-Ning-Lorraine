@@ -222,3 +222,51 @@
 
  [![cos_disk_num_size](https://asciinema.org/a/477413.svg)](https://asciinema.org/a/477413)
 
+
+#### 问题与解决方案
+
+##### 关于`sudo apt update `报错：`Temporary failure resolving "cn.archive.ubuntu.com"`
+
+ 在使用`sudo apt update`时，出现了暂时无法解析"cn.archive.ubuntu.com"的错误：
+
+ ![failed_cn_baidu](./img/failed_cn_archive.jpg)
+ 
+ 首先，使用命令`curl -v www.baidu.com`,向百度网站发起请求，得到的反馈是（这里我没有进行截图）：
+
+ ```
+ * Rebuilt URL to: www.baidu.com/
+ * Could not resolve host: www.baidu.com
+ * Closing connection 0
+ curl: (6) Could not resolve host: www.baidu.com
+ ```
+
+ 解释原因为：没有配置DNS服务器地址，但其实我本地是存在一个原有dns地址的，不知道什么原因没有发挥作用。
+
+ 根据所查资料显示：要配置DNS，首先，要修改`/etc/systemd/resolved.conf`: `sudo vi /etc/systemd/resolved.conf`
+
+ 将查到的公网用的DNS地址 ：`DNS:8.8.8.8`和`DNS:114.114.114.114`添加进去：
+
+ ![vb_resolved.conf](./img/vb_resolve_dns.jpg)
+
+ 如图，`127.0.0.53`为我原来存在的DNS地址
+
+ 第二步，重启域名解析服务：
+
+                systemctl restart systemd-resolved
+                systemctl enable systemd-resolved
+
+
+ 第三步：备份当前的`/etc/resolve.conf`，并重新设置`/run/systemd/resolve/resolv.conf`  到`/etc/resolve.conf`的软链接
+
+                mv    /etc/resolv.conf    /etc/resolv.conf.bak
+                ln  -s   /run/systemd/resolve/resolv.conf    /etc/
+
+ 然后就可以正常启动了。
+
+ 【参考资料】
+
+  关于`curl`命令的使用:https://cloud.tencent.com/developer/article/1579118
+
+  关于DNS错误的发现:http://www.manongjc.com/article/34069.html
+
+  关于Ubuntu20.04配置DNS的正确方式：https://blog.csdn.net/lsc_1893/article/details/118696693
