@@ -1,0 +1,36 @@
+language: bash
+
+before_install:
+  - sudo apt install -y shellcheck p7zip-full imagemagick ghostscript 
+
+script:
+  - ls -l
+  - shellcheck Task1.sh
+  - echo Task1
+  - bash Task1.sh -h
+  - bash Task1.sh -c 90
+  - bash Task1.sh -r ipg 600
+  - bash Task1.sh -w weiweiwei 50 south 200 
+  - bash Task1.sh -p pre
+  - bash Task1.sh -s Suf
+  - bash Task1.sh -t 
+  - shellcheck Task2-ProcessFile.sh
+  - echo Task2
+  - bash Task2-ProcessFile.sh -h
+  - bash Task2-ProcessFile.sh -a
+  - bash Task2-ProcessFile.sh -p
+  - bash Task2-ProcessFile.sh -n
+  - bash Task2-ProcessFile.sh -m
+  - shellcheck Task3-ProcessFile.sh
+  - echo Task3
+  - bash Task3-ProcessFile.sh -h
+  - bash Task3-ProcessFile.sh -t
+  - bash Task3-ProcessFile.sh -i
+  - bash Task3-ProcessFile.sh -u
+  - bash Task3-ProcessFile.sh -s
+  - bash Task3-ProcessFile.sh -c
+  - bash Task3-ProcessFile.sh -f /images/NASA-logosmall.gif
+
+notifications:
+  email:
+    on_success: never 
