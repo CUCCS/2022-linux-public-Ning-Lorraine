@@ -50,11 +50,11 @@ $ sudo systemctl rescue
 
 1.重启系统
 
-![重启系统显示](/img/ml_vr_3.1.1.jpg)
+![重启系统显示](./img/ml_vr_3.1.1.jpg)
 
 2.暂停系统：无法继续输入
 
-![暂停系统](/img/ml-%E6%9A%82%E5%81%9C%E7%B3%BB%E7%BB%9F.jpg)
+![暂停系统](./img/ml-%E6%9A%82%E5%81%9C%E7%B3%BB%E7%BB%9F.jpg)
 
 [[命令篇3.2 systemd-analyze](https://asciinema.org/a/485907.svg)](https://asciinema.org/a/485907)
 
@@ -104,13 +104,13 @@ sudo usermod -G sudo *Username*
 #通过查看用户组信息，检查用户的sudo权限 
 cat /etc/group
 ```
- ![添加用户](/img/linx_adduser_1.jpg)
+ ![添加用户](./img/linx_adduser_1.jpg)
 
- ![检查添加情况](/img/linx_adduser_check.jpg)
+ ![检查添加情况](./img/linx_adduser_check.jpg)
 
- ![添加sudo权限](/img/linx_adduer_sudo.jpg)
+ ![添加sudo权限](./img/linx_adduer_sudo.jpg)
 
- ![检查用户dudo权限](/img/linx_adduser_sudo_check.jpg)
+ ![检查用户dudo权限](./img/linx_adduser_sudo_check.jpg)
 
 
 ##### 2.如何将一个用户添加到一个用户组？
@@ -123,7 +123,7 @@ sudo adduser *groupname* *username* #添加用户到组
 groups *username*  #查看用户属于什么组
 ```
 
- ![](/img/linx-adduser.jpg)
+ ![](./img/linx-adduser.jpg)
 
 
 ##### 3.如何查看当前系统的分区表和文件系统详细信息？
@@ -134,10 +134,10 @@ lsblk
 #查看文件系统详细信息
 df -T -h
 ```
- 
- ![查看分区表](/img/linx_fenqubiao.jpg)
 
- ![查看文件系统详细信息](/img/linx_filesysytem_imf.jpg)
+ ![查看分区表](./img/linx_fenqubiao.jpg)
+
+ ![查看文件系统详细信息](./img/linx_filesysytem_imf.jpg)
 
 
 ##### 4.如何实现开机自动挂载Virtualbox的共享目录分区？
@@ -151,11 +151,11 @@ df -T -h
   sudo sh VBoxLinuxAdditions.run
   ```
 
-  ![安装客机增强功能](/img/linx_%E5%AE%89%E8%A3%85%E5%AE%A2%E6%9C%BA%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD.jpg)
+  ![安装客机增强功能](./img/linx_%E5%AE%89%E8%A3%85%E5%AE%A2%E6%9C%BA%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD.jpg)
 
 - 配置固定分配共享文件夹
 
- ![固定分配](/img/linx_%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD.jpg)
+ ![固定分配](./img/linx_%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD.jpg)
 
 
 - 挂载
@@ -165,8 +165,8 @@ df -T -h
   sudo mount -t vboxsf [你的windows共享目录] [Ubuntu共享目录]   #挂载命令
   ```
 
- ![挂载](/img/linx_%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD2.jpg)
-  
+ ![挂载](./img/linx_%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD2.jpg)
+
 
 - 实现开机自动挂载
 
