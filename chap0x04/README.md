@@ -270,6 +270,8 @@
           exit 0
       }
       ```
+
+      ![task2-a](./imgs/task2-a.jpg)
   
       
   
@@ -292,6 +294,9 @@
           exit 0
       }
       ```
+
+      ![task2-p](./imgs/task2-p.jpg)
+  
   
       
   
@@ -323,6 +328,9 @@
           exit 0
       }
       ```
+
+      ![task2-n](./imgs/task2-n.jpg)
+  
   
       
   
@@ -353,6 +361,9 @@
           exit 0
       }
       ```
+
+      ![task2-m](./imgs/task2-m.jpg)
+  
   
   - 任务二：Web服务器访问日志
   
@@ -375,6 +386,8 @@
           exit 0
       }
       ```
+
+      ![task3-t](./imgs/task3-t.jpg)
   
       
   
@@ -399,6 +412,9 @@
           exit 0
       }
       ```
+
+      ![task3-i](./imgs/task3-i.jpg)
+  
   
       
   
@@ -422,6 +438,8 @@
           exit 0
       }
       ```
+
+      ![task3-u](./imgs/task3-u.jpg)
   
       
   
@@ -446,6 +464,8 @@
           exit 0
       }
       ```
+
+      ![task3-s](./imgs/task3-s.jpg)
   
       
   
@@ -472,6 +492,8 @@
           exit 0
       }
       ```
+
+      ![task3-c](./imgs/task3-c.jpg)
   
       
   
@@ -498,6 +520,8 @@
           exit 0
       }
       ```
+
+      ![task3-f](./imgs/task3-f.jpg)
   
   ### 实验总结
   
